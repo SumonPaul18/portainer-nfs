@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    volumes:
+      - 192.168.0.96:/nfs-share/docker/portainer-data:/portainer-data
+volumes:
+  portainer_data:
+
+
+
+docker compose ps
