@@ -26,4 +26,21 @@ Define the NFS volume in the volumes section.
           type: "nfs"
           o: "addr=192.168.0.96,nolock,soft,rw"
           device: ":/nfs-share/docker/porainer-data"
+####
+    docker compose up -d
+####
+### Create NFS Docker Volume
+The details include:
 
+- The volume type.
+- The write mode.
+- The IP or web address of the remote NFS server.
+- The path to the shared directory on the server.
+####
+NFS Docker volume Syntax
+####
+    docker volume create --driver local \
+      --opt type=nfs \
+      --opt o=addr=[ip-address],rw \
+      --opt device=:[path-to-directory] \
+      [volume-name]
