@@ -63,3 +63,46 @@ Use the docker run command to start the container. Specify the NFS volume and th
 
 
 ####
+    version: "2.2"
+    services:
+      portainer:
+        image: portainer/portainer-ce:latest
+        container_name: portainer
+        restart: always
+        ports:
+          - "8000:8000"
+          - "9443:9443"
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+          - nfsvolume-portainer:/data:rw
+        tty: true
+
+    volumes:
+      nfsvolume-portainer:
+        driver: local
+        driver_opts:
+          type: "nfs"
+          o: "addr=192.168.0.96,rw,nfsvers=4"
+          device: ":/nfs-share/docker/portainer-data"
+
+####
+     portainer:
+        image: portainer/portainer
+        container_name: portainer
+        restart: always
+        ports:
+          - "8000:8000"
+          - "9443:9443"
+        volumes:
+          - nfsvolume:/data:rw
+        tty: true
+    volumes:
+      nfsvolume-portainer:
+        driver: local
+        driver_opts:
+          type: "nfs"
+          o: "addr=192.168.0.96,rw,nfsvers=4"
+          device: ":/nfs-share/docker/portainer-data"
+
+
+
