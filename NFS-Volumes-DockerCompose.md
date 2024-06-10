@@ -44,3 +44,22 @@ NFS Docker volume Syntax
       --opt o=addr=[ip-address],rw \
       --opt device=:[path-to-directory] \
       [volume-name]
+####
+List the available Docker volumes.
+####
+    docker volume ls
+####
+Inspect the volume with the inspect subcommand.
+####
+    docker volume inspect [volume-name]
+
+####
+Use the docker run command to start the container. Specify the NFS volume and the mount point in the --mount section.
+####
+    docker run -d -it \
+      --name [container-name] \
+      --mount source=[volume-name],target=[mount-point]\
+      [image-name]
+
+
+####
