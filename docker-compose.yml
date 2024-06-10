@@ -1,16 +1,21 @@
-version: "3.8"
+version: "2.2"
 services:
   portainer:
-    image: portainer/portainer
+    image: portainer/portainer-ce:latest
     container_name: portainer
-    restart: unless-stopped
+    restart: always
     ports:
-      - "9000:9000"
+      - "8000:8000"
+      - "9443:9443"
     volumes:
-      - 192.168.0.96:/nfs-share/docker/portainer-data:/portainer-data
+      - /var/run/docker.sock:/var/run/docker.sock
+      - nfsvolume-portainer:/data:rw
+    tty: true
+
 volumes:
-  portainer_data:
-
-
-
-docker compose ps
+  nfsvolume-portainer:
+    driver: local
+    driver_opts:
+      type: "nfs"
+      o: "addr=192.168.0.96,rw,nfsvers=4"
+      device: ":/nfs-share/docker/portainer-data"
