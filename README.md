@@ -17,6 +17,13 @@
           - nfsvolume-portainer:/data:rw
         tty: true
 
+####
+Now, Run Docker Compose UP Command
+####
+    docker compose up -d
+####
+
+
     volumes:
       nfsvolume-portainer:
         driver: local
