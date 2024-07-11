@@ -16,14 +16,6 @@
           - /var/run/docker.sock:/var/run/docker.sock
           - nfsvolume-portainer:/data:rw
         tty: true
-
-####
-Now, Run Docker Compose UP Command
-####
-    docker compose up -d
-####
-
-
     volumes:
       nfsvolume-portainer:
         driver: local
@@ -31,3 +23,9 @@ Now, Run Docker Compose UP Command
           type: "nfs"
           o: "addr=192.168.0.96,rw,nfsvers=4"
           device: ":/nfs-share/docker/portainer-data"
+
+####
+Now, Run Docker Compose UP Command
+####
+    docker compose up -d
+####
