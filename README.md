@@ -1,8 +1,7 @@
 # Run Portainer and Data Store in NFS Server
+
 ####
     mkdir portainer && cd portainer
-    nano docker-compose.yml
-####
     cat <<EOF | sudo tee /root/portainer/docker-compose.yml
     version: "2.2"
     services:
