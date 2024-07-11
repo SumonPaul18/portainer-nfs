@@ -3,7 +3,7 @@
     mkdir portainer && cd portainer
     nano docker-compose.yml
 ####
-cat <<EOF | sudo tee /root/portainer/docker-compose.yml
+    cat <<EOF | sudo tee /root/portainer/docker-compose.yml
     version: "2.2"
     services:
       portainer:
@@ -24,7 +24,7 @@ cat <<EOF | sudo tee /root/portainer/docker-compose.yml
           type: "nfs"
           o: "addr=192.168.0.96,rw,nfsvers=4"
           device: ":/nfs-share/docker/portainer-data"
-EOF
+    EOF
 ####
 Now, Run Docker Compose UP Command
 ####
