@@ -2,7 +2,7 @@
 
 ####
     mkdir portainer && cd portainer
-    cat <<EOF | sudo tee /root/portainer/docker-compose.yml
+    cat <<EOF | sudo tee docker-compose.yml
     version: "2.2"
     services:
       portainer:
@@ -11,7 +11,7 @@
         restart: always
         ports:
           - "8000:8000"
-          - "9443:9443"
+          - "9000:9000"
         volumes:
           - /var/run/docker.sock:/var/run/docker.sock
           - nfsvolume-portainer:/data:rw
