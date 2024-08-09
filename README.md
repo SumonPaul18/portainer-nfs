@@ -1,3 +1,13 @@
+# Run Portainer on Current Directory
+####
+    git clone https://github.com/SumonPaul18/portainer-nfs.git
+    cd portainer-nfs
+    docker compose up -d
+    docker compose ps
+
+Broswing Portainer Dashboard:
+http://dockerhostip:9000
+
 # Run Portainer and Data Store in NFS Server
 
 ####
