@@ -5,7 +5,7 @@
     docker compose up -d
     docker compose ps
 
-Broswing Portainer Dashboard:
+Broswing Portainer Dashboard:<br>
 http://dockerhostip:9000
 
 # Run Portainer and Data Store in NFS Server
